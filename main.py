@@ -5,8 +5,8 @@ from art import logo
 
 
 def create_deck():
-suits = ["♠️", "♣️", "♥️", "♦️", "♠️", "♣️", "♥️", "♦️"]
-values_cards = [
+  suits = ["♠️", "♣️", "♥️", "♦️", "♠️", "♣️", "♥️", "♦️"]
+  values_cards = [
     '2',
     '3',
     '4',
@@ -21,7 +21,7 @@ values_cards = [
     'K',
     'A',
 ]
-return [{
+  return [{
     'value_card': value_card,
     'suit': suit
 } for value_card, suit in itertools.product(values_cards, suits)]
