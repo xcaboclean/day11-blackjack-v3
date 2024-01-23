@@ -3,26 +3,6 @@ import random
 from replit import clear
 from art import logo
 
-def drawn_card(deck):
-  if not deck:
-      print("Empty deck")
-      return None
-  else:
-      return deck.pop()
-
-#Print one card
-
-def print_card(card, lines):
-    lines[0] = lines[0] + " " + "┌───┐"
-    if card['value_card'] == '10':
-        lines[1] = lines[1] + " " + f"│{card['value_card']} │"
-        lines[2] = lines[2] + " " + f"│ {card['suit']} │"
-    else:
-        lines[1] = lines[1] + " " + f"│ {card['value_card']} │"
-        lines[2] = lines[2] + " " + f"│ {card['suit']} │"
-
-    lines[3] = lines[3] + " " + "└───┘"
-    
 def create_deck():
   suits = ["♠️", "♣️", "♥️", "♦️", "♠️", "♣️", "♥️", "♦️"]
   values_cards = [
@@ -45,7 +25,38 @@ def create_deck():
     'suit': suit
 } for value_card, suit in itertools.product(values_cards, suits)]
 
-def print_hands(player, dealer):
+def drawn_card(deck):
+  if not deck:
+      print("Empty deck")
+      return None
+  else:
+      return deck.pop()
+
+#Print one card
+
+def print_card(card, lines):
+    lines[0] = lines[0] + " " + "┌───┐"
+    if card['value_card'] == '10':
+        lines[1] = lines[1] + " " + f"│{card['value_card']} │"
+        lines[2] = lines[2] + " " + f"│ {card['suit']} │"
+    else:
+        lines[1] = lines[1] + " " + f"│ {card['value_card']} │"
+        lines[2] = lines[2] + " " + f"│ {card['suit']} │"
+
+    lines[3] = lines[3] + " " + "└───┘"
+
+
+# Print all cards of one hand
+def print_hand(hand, lines):
+    for card in hand:
+        print_card(card, lines)
+
+    for line in lines:
+        print(line)
+
+#Print hand of player and dealer
+
+def print_the_two_hands(player, dealer):
   print("\nDealer hand:")
   lines = [" ", " ", " ", " "]
   
