@@ -3,7 +3,13 @@ import random
 from replit import clear
 from art import logo
 
-
+def drawn_card(deck):
+  if not deck:
+      print("Empty deck")
+      return None
+  else:
+      return deck.pop()
+    
 def create_deck():
   suits = ["♠️", "♣️", "♥️", "♦️", "♠️", "♣️", "♥️", "♦️"]
   values_cards = [
