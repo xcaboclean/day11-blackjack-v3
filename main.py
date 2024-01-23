@@ -27,15 +27,29 @@ def create_deck():
 } for value_card, suit in itertools.product(values_cards, suits)]
 
 
+def print_baseboard(deck):
+  print(f"\n┌───────────────┐\n│{len(deck):03}🃏🎴 card(s)│\n└───────────────┘")
 
-
-def print_screen():
+def print_screen(deck):
+  clear()
   print(logo)
+  print_baseboard(deck)
 
   
-def play_game():
-  print_screen()
+def play_game(deck):
+  print_screen(deck)
+
+
+#**************
+#**************
+#Start Program
+#**************  print_screen()
+#**************
+hand_player = []
+hand_dealer = []
+end_game = False
+deck = create_deck()
 
 while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
   clear()
-  play_game()
+  play_game(deck)
